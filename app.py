@@ -44,13 +44,16 @@ def load_contract():
 st.title("Enter Your Festival Experience")
 accounts = w3.eth.accounts
 tiers = ["General Admission", "Pit", "Back Stage"]
-
+concert_name_list = ["Generic Concert 1", "Generic Concert 2", "Generic Concert 3"]
+concert_details_list = ["Slip Knot - 5/9/21", "The Contortionist - 8/16/22", "Weezer - 11/21/22", "Pearl Jam - 12/14/22"]
 
 # Use a Streamlit component to get the address of the artwork owner from the user
 address = st.selectbox("Select Ticket Owner", options=accounts)
 
-# Use a Streamlit component to get correct ticket tier from the user
+# Use a Streamlit component to get correct ticket tier and concert details from the user
 st.markdown("# Choose Your Pass")
+concert_name  = st.selectbox("Select Your Venue", options=concert_name_list)
+concert_details = st.selectbox("Select Your Artist", options=concert_details_list)
 ticket_tier = st.selectbox("Select Your Ticket Option", options=tiers)
 
 # Register New Ticket
@@ -71,10 +74,13 @@ if st.button("Purchase Ticket"):
 
     # Use the contract to send a transaction to the registerArtwork function and send a transaction that transfers the cost of the ticket to the company
     #if contract.functions.totalSupply().call < 500:
-        tx_hash = contract.functions.registerArtwork(
+        tx_hash = contract.functions.registerEventArt(
             address,
+            concert_name,
+            concert_details,
+            concert_database[ticket_tier][2],
             artwork_uri
-        ).transact({'from': address, 'gas': 1000000})
+            ).transact({'from': address, 'gas': 1000000})
         receipt = w3.eth.waitForTransactionReceipt(tx_hash)
         w3.eth.send_transaction({'to': '0x1Cde67bB7Dc95153EC27e833eB6Be0BfED471C86', 'from': address , 'gas': 1000000, 'value': ticket_cost_wei})
         st.write("Transaction receipt mined:")
