@@ -203,56 +203,6 @@
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "tokenId",
-				"type": "uint256"
-			},
-			{
-				"name": "newAppraisalValue",
-				"type": "uint256"
-			},
-			{
-				"name": "reportURI",
-				"type": "string"
-			},
-			{
-				"name": "tokenJSON",
-				"type": "string"
-			}
-		],
-		"name": "newAppraisal",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"name": "tokenId",
-				"type": "uint256"
-			}
-		],
-		"name": "imageUri",
-		"outputs": [
-			{
-				"name": "imageJson",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"constant": true,
 		"inputs": [
 			{
@@ -269,6 +219,45 @@
 		],
 		"payable": false,
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"name": "eventName",
+				"type": "string"
+			},
+			{
+				"name": "artistList",
+				"type": "string"
+			},
+			{
+				"name": "startDate",
+				"type": "uint64"
+			},
+			{
+				"name": "expireDate",
+				"type": "uint64"
+			},
+			{
+				"name": "tokenURI",
+				"type": "string"
+			}
+		],
+		"name": "registerEventArt",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -311,23 +300,23 @@
 				"type": "uint256"
 			}
 		],
-		"name": "artCollection",
+		"name": "ticketCollection",
 		"outputs": [
 			{
-				"name": "name",
+				"name": "eventName",
 				"type": "string"
 			},
 			{
-				"name": "artist",
+				"name": "artistList",
 				"type": "string"
 			},
 			{
-				"name": "appraisalValue",
-				"type": "uint256"
+				"name": "startDate",
+				"type": "uint64"
 			},
 			{
-				"name": "artJson",
-				"type": "string"
+				"name": "expireDate",
+				"type": "uint64"
 			}
 		],
 		"payable": false,
@@ -403,45 +392,6 @@
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"name": "artist",
-				"type": "string"
-			},
-			{
-				"name": "initialAppraisalValue",
-				"type": "uint256"
-			},
-			{
-				"name": "tokenURI",
-				"type": "string"
-			},
-			{
-				"name": "tokenJSON",
-				"type": "string"
-			}
-		],
-		"name": "registerArtwork",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
@@ -457,21 +407,16 @@
 			},
 			{
 				"indexed": false,
-				"name": "appraisalValue",
-				"type": "uint256"
+				"name": "startDate",
+				"type": "uint64"
 			},
 			{
 				"indexed": false,
-				"name": "reportURI",
-				"type": "string"
-			},
-			{
-				"indexed": false,
-				"name": "artJson",
-				"type": "string"
+				"name": "expireDate",
+				"type": "uint64"
 			}
 		],
-		"name": "Appraisal",
+		"name": "ticket",
 		"type": "event"
 	},
 	{

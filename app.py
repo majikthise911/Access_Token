@@ -57,9 +57,10 @@ ticket_tier = st.selectbox("Select Your Ticket Option", options=tiers)
 ################################################################################
 ETH_data = requests.get("https://api.alternative.me/v2/ticker/Ethereum/?convert=USD").json()
 ether_exchange_rate = ETH_data['data']['1027']['quotes']['USD']['price']
-ticket_cost_ether = round(concert_database[ticket_tier][2] / ether_exchange_rate, 3)
+ticket_cost_ether_display = round(concert_database[ticket_tier][2] / ether_exchange_rate, 6)
+ticket_cost_ether = concert_database[ticket_tier][2] / ether_exchange_rate
 ticket_cost_wei = w3.toWei(ticket_cost_ether, 'ether')
-st.write(f"Ticket cost is ${concert_database[ticket_tier][2]} = {ticket_cost_ether} ETH")
+st.write(f"Ticket cost is ${concert_database[ticket_tier][2]} = {ticket_cost_ether_display} ETH")
 contract = load_contract()
 
 # Get Artwork URI from initial dictionary up top
@@ -69,17 +70,16 @@ artwork_uri = concert_database[ticket_tier][4]
 if st.button("Purchase Ticket"):
 
     # Use the contract to send a transaction to the registerArtwork function and send a transaction that transfers the cost of the ticket to the company
-    # if contract.functions.totalSupply().call <500:
-    tx_hash = contract.functions.registerArtwork(
-        address,
-        artwork_uri
-    ).transact({'from': address, 'gas': 1000000})
-    receipt = w3.eth.waitForTransactionReceipt(tx_hash)
-    w3.eth.send_transaction({'to': '0x1Cde67bB7Dc95153EC27e833eB6Be0BfED471C86', 'from': address , 'gas': 1000000, 'value': ticket_cost_wei})
-    st.write("Transaction receipt mined:")
-    st.write(dict(receipt))
-    # Else:  
-
+    #if contract.functions.totalSupply().call < 500:
+        tx_hash = contract.functions.registerArtwork(
+            address,
+            artwork_uri
+        ).transact({'from': address, 'gas': 1000000})
+        receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+        w3.eth.send_transaction({'to': '0x1Cde67bB7Dc95153EC27e833eB6Be0BfED471C86', 'from': address , 'gas': 1000000, 'value': ticket_cost_wei})
+        st.write("Transaction receipt mined:")
+        st.write(dict(receipt))
+    #Else: st.write("THIS PASS IS SOLD OUT")
 st.markdown("---")
 
 
@@ -102,12 +102,12 @@ token_id = st.selectbox("Ticket Tokens", list(range(total_token_supply)))
 
 if st.button("Display"):
 
-    # Get the art token owner
+    # Get the ticket token owner
     owner = contract.functions.ownerOf(token_id).call()
     
     st.write(f"The ticket is registered to {owner}")
 
-    # Get the art token's URI
+    # Get the ticket token's URI
     token_uri = contract.functions.tokenURI(token_id).call()
 
     st.write(f"The tokenURI is {token_uri}")

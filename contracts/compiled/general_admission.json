@@ -222,6 +222,45 @@
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"name": "eventName",
+				"type": "string"
+			},
+			{
+				"name": "artistList",
+				"type": "string"
+			},
+			{
+				"name": "startDate",
+				"type": "uint64"
+			},
+			{
+				"name": "expireDate",
+				"type": "uint64"
+			},
+			{
+				"name": "tokenURI",
+				"type": "string"
+			}
+		],
+		"name": "registerEventArt",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [],
 		"name": "symbol",
@@ -251,6 +290,37 @@
 		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "ticketCollection",
+		"outputs": [
+			{
+				"name": "eventName",
+				"type": "string"
+			},
+			{
+				"name": "artistList",
+				"type": "string"
+			},
+			{
+				"name": "startDate",
+				"type": "uint64"
+			},
+			{
+				"name": "expireDate",
+				"type": "uint64"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
@@ -322,33 +392,32 @@
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"name": "tokenURI",
-				"type": "string"
-			}
-		],
-		"name": "registerArtwork",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "startDate",
+				"type": "uint64"
+			},
+			{
+				"indexed": false,
+				"name": "expireDate",
+				"type": "uint64"
+			}
+		],
+		"name": "ticket",
+		"type": "event"
 	},
 	{
 		"anonymous": false,
