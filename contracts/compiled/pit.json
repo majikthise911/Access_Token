@@ -132,6 +132,41 @@
 		"constant": false,
 		"inputs": [
 			{
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"name": "eventName",
+				"type": "string"
+			},
+			{
+				"name": "eventDetails",
+				"type": "string"
+			},
+			{
+				"name": "initialTicketValue",
+				"type": "uint256"
+			},
+			{
+				"name": "tokenURI",
+				"type": "string"
+			}
+		],
+		"name": "registerEventArt",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
 				"name": "from",
 				"type": "address"
 			},
@@ -222,45 +257,6 @@
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [
-			{
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"name": "eventName",
-				"type": "string"
-			},
-			{
-				"name": "artistList",
-				"type": "string"
-			},
-			{
-				"name": "startDate",
-				"type": "uint64"
-			},
-			{
-				"name": "expireDate",
-				"type": "uint64"
-			},
-			{
-				"name": "tokenURI",
-				"type": "string"
-			}
-		],
-		"name": "registerEventArt",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"constant": true,
 		"inputs": [],
 		"name": "symbol",
@@ -307,16 +303,12 @@
 				"type": "string"
 			},
 			{
-				"name": "artistList",
+				"name": "eventDetails",
 				"type": "string"
 			},
 			{
-				"name": "startDate",
-				"type": "uint64"
-			},
-			{
-				"name": "expireDate",
-				"type": "uint64"
+				"name": "ticketValue",
+				"type": "uint256"
 			}
 		],
 		"payable": false,
@@ -369,6 +361,33 @@
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"name": "newTicketValue",
+				"type": "uint256"
+			},
+			{
+				"name": "reportURI",
+				"type": "string"
+			}
+		],
+		"name": "ticketPrice",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [
 			{
@@ -407,13 +426,13 @@
 			},
 			{
 				"indexed": false,
-				"name": "startDate",
-				"type": "uint64"
+				"name": "ticketValue",
+				"type": "uint256"
 			},
 			{
 				"indexed": false,
-				"name": "expireDate",
-				"type": "uint64"
+				"name": "reportURI",
+				"type": "string"
 			}
 		],
 		"name": "ticket",
