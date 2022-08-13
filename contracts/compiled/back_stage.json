@@ -90,18 +90,13 @@
 			},
 			{
 				"internalType": "string",
-				"name": "artistList",
+				"name": "eventDetails",
 				"type": "string"
 			},
 			{
-				"internalType": "uint64",
-				"name": "startDate",
-				"type": "uint64"
-			},
-			{
-				"internalType": "uint64",
-				"name": "expireDate",
-				"type": "uint64"
+				"internalType": "uint256",
+				"name": "initialTicketValue",
+				"type": "uint256"
 			},
 			{
 				"internalType": "string",
@@ -232,19 +227,50 @@
 			},
 			{
 				"indexed": false,
-				"internalType": "uint64",
-				"name": "startDate",
-				"type": "uint64"
+				"internalType": "uint256",
+				"name": "ticketValue",
+				"type": "uint256"
 			},
 			{
 				"indexed": false,
-				"internalType": "uint64",
-				"name": "expireDate",
-				"type": "uint64"
+				"internalType": "string",
+				"name": "reportURI",
+				"type": "string"
 			}
 		],
 		"name": "ticket",
 		"type": "event"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tokenId",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "newTicketValue",
+				"type": "uint256"
+			},
+			{
+				"internalType": "string",
+				"name": "reportURI",
+				"type": "string"
+			}
+		],
+		"name": "ticketPrice",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"constant": false,
@@ -444,18 +470,13 @@
 			},
 			{
 				"internalType": "string",
-				"name": "artistList",
+				"name": "eventDetails",
 				"type": "string"
 			},
 			{
-				"internalType": "uint64",
-				"name": "startDate",
-				"type": "uint64"
-			},
-			{
-				"internalType": "uint64",
-				"name": "expireDate",
-				"type": "uint64"
+				"internalType": "uint256",
+				"name": "ticketValue",
+				"type": "uint256"
 			}
 		],
 		"payable": false,
