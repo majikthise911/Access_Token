@@ -6,21 +6,23 @@ from pathlib import Path
 from dotenv import load_dotenv
 import streamlit as st
 
+from pinata import pin_file_to_ipfs, pin_json_to_ipfs, convert_data_to_json
+
 load_dotenv()
 
 # Define and connect a new Web3 provider
 w3 = Web3(Web3.HTTPProvider(os.getenv("WEB3_PROVIDER_URI")))
 
+# Create contract dictionary to store info
+concert_database = {
+    "General Admission": ["General Admission", "SMART_CONTRACT_ADDRESS_GA", 50, './contracts/compiled/general_admission.json', "https://gateway.pinata.cloud/ipfs/QmUnEEC1U22XpEmzT7E8St96984CPVDRYkN6qH4yxUKptF","QmUnEEC1U22XpEmzT7E8St96984CPVDRYkN6qH4yxUKptF"],
+    "Pit": ["Pit", "SMART_CONTRACT_ADDRESS_PIT", 150, './contracts/compiled/pit.json', "https://gateway.pinata.cloud/ipfs/Qmb8qk1XRziBQ7yqof8aE6Mb8HtVa6oNFXavrPPmbauiXX", "Qmb8qk1XRziBQ7yqof8aE6Mb8HtVa6oNFXavrPPmbauiXX"],
+    "Back Stage": ["Back Stage", "SMART_CONTRACT_ADDRESS_BS", 300, './contracts/compiled/back_stage.json', "https://gateway.pinata.cloud/ipfs/QmY95o4C3R4Tuto183ZzXc35Pq52QTad6bXPTTFwVCDiSz", "QmY95o4C3R4Tuto183ZzXc35Pq52QTad6bXPTTFwVCDiSz"]
+}
+
 ################################################################################
 # The Load_Contract Function
 ################################################################################
-
-concert_database = {
-    "General Admission": ["General Admission", "SMART_CONTRACT_ADDRESS_GA", 50, './contracts/compiled/general_admission.json', "https://raw.githubusercontent.com/majikthise911/Access_Token/devFork-JC/Screenshot%202022-08-11%20213953.png"],
-    "Pit": ["Pit", "SMART_CONTRACT_ADDRESS_PIT", 150, './contracts/compiled/pit.json', "https://raw.githubusercontent.com/majikthise911/Access_Token/devFork-JC/Screenshot%202022-08-11%20213742.png"],
-    "Back Stage": ["Back Stage", "SMART_CONTRACT_ADDRESS_BS", 300, './contracts/compiled/back_stage.json', "https://raw.githubusercontent.com/majikthise911/Access_Token/devFork-JC/Screenshot%202022-08-11%20214135.png"]
-}
-
 
 @st.cache(allow_output_mutation=True)
 def load_contract():
@@ -36,6 +38,8 @@ def load_contract():
     )
 
     return contract
+
+
 
 
 ################################################################################
@@ -83,6 +87,7 @@ if st.button("Purchase Ticket"):
             ).transact({'from': address, 'gas': 1000000})
         receipt = w3.eth.waitForTransactionReceipt(tx_hash)
         w3.eth.send_transaction({'to': '0x8F97dC517a112df5F1Fc8fb5b81907f929991a4B', 'from': address , 'gas': 1000000, 'value': ticket_cost_wei})
+        
         st.write("Transaction receipt mined:")
         st.write(dict(receipt))
     #Else: st.write("THIS PASS IS SOLD OUT")
@@ -119,3 +124,36 @@ if st.button("Display"):
     st.write(f"The tokenURI is {token_uri}")
     st.image(token_uri)
 
+################################################################################
+# Helper functions to pin files and json to Pinata
+################################################################################
+
+def pin_artwork(artwork_name):
+    # Pin the file to IPFS with Pinata
+    ipfs_file_hash = concert_database[ticket_tier][6]
+
+     # .getvalue() is a streamlit function that gets the file data
+
+    # Build a token metadata file for the artwork
+    token_json = {
+        "name": artwork_name,
+        "image": ipfs_file_hash
+    }
+    json_data = convert_data_to_json(token_json)
+
+    # Pin the json to IPFS with Pinata
+    json_ipfs_hash = pin_json_to_ipfs(json_data)
+
+    return json_ipfs_hash, token_json
+
+
+def pin_appraisal_report(report_content):
+    json_report = convert_data_to_json(report_content)
+    report_ipfs_hash = pin_json_to_ipfs(json_report)
+    return report_ipfs_hash
+
+
+st.title("Ticket System")
+st.write("Choose an account to get started")
+# address_trade = st.selectbox("Select Account", options=accounts)
+st.markdown("---")
