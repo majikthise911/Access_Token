@@ -52,24 +52,43 @@ Alternative options to distribution include the use of prexisting NFT exchanges 
 
 # Instructions 
 
-1.	Open Ganache test blockchain 
-2.	Set up Ganache test environment
-3.	Open remix and connect Metamask to remix 
-4.	Import all three contracts into remix 
-5.	Compile each contract 
-6.	Deploy each contract 
-7.	Confirm gas in Metamask 
-8.	Copy the meta data for each deployed contract 
+1.	Open Ganache test blockchain  ----------------------------------------------------------------------------------------------------
+2.	Set up Ganache test environment ------------------------------------------------------------------------------------------------
+![Step 2a](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/02a_set%20up%20ganache%20network%20on%20metamask.png)
+![Step 2b](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/02b_import%20ganache%20accounts%20to%20metamask1.png)
+![Step 2c](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/02c_import%20ganache%20accounts%20to%20metamask2.png)
+
+3.	Open remix and connect Metamask to remix  ------------------------------------------------------------------------------------------------
+![Step 3](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/03_import%20contracts%20to%20remix.png)
+
+
+4.	Import all three contracts into remix  ------------------------------------------------------------------------------------------------
+5.	Compile each contract  ------------------------------------------------------------------------------------------------
+![Step 5](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/05_compile.png)
+
+
+6.	Deploy each contract  ------------------------------------------------------------------------------------------------
+![Step 6a](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/06a_deploy.png)
+![Step 6b](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/06b_confirm%20gas.png)
+![Step ca](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/06c_transaction%20data.png)
+
+7.	Confirm gas in Metamask ------------------------------------------------------------------------------------------------
+8.	Copy the meta data for each deployed contract--------------------------------------------------------------------------
+![Step 8](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/08_copy%20meta%20data.png)
+
+
 9.	Create a directory within the contracts directory called “compiled” 
 10.	Paste that meta data for each deployed contract into corresponding .json files in the compiled folder
 11.	Copy the hash function for each contract and paste into the corresponding variable within the .env file 
+![Step 11](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/11_copy%20contract%20hash.png)
+
+
 12.	 Copy the wallet address for the receiving account and paste into the app.py file 
 13.	Open terminal and navigate to the folder that the app.py folder is in
 14.	Make sure you are in the correct dev environment
 15.	Type Streamlit run app.py
 
 
-![step 2](https://raw.githubusercontent.com/majikthise911/Access_Token/devFork-JC/Images/set%20up%20ganache%20network%20on%20metamask.png)
 
 
 
