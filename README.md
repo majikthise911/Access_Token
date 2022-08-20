@@ -106,7 +106,7 @@ Alternative options to distribution include the use of prexisting NFT exchanges 
 
 # Demonstration 
 
-[![DEMONSTRATION](https://youtu.be/dXZO-gtov3E)](https://youtu.be/dXZO-gtov3E)
+[![CLICK FOR DEMONSTRATION](https://youtu.be/dXZO-gtov3E)](https://youtu.be/dXZO-gtov3E)
 
 
 
