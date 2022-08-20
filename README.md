@@ -54,7 +54,7 @@ Alternative options to distribution include the use of prexisting NFT exchanges 
 
 1.	Open Ganache test blockchain 
 2.	Set up Ganache test environment
-![alt=""](FinTech\github\Access_Token\Images\set up ganache network on metamask.png)
+![step 2](https://raw.githubusercontent.com/majikthise911/Access_Token/devFork-JC/Images/set%20up%20ganache%20network%20on%20metamask.png)
 3.	Open remix and connect Metamask to remix 
 4.	Import all three contracts into remix 
 5.	Compile each contract 
