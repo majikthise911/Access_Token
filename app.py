@@ -27,7 +27,7 @@ concert_database = {
 @st.cache(allow_output_mutation=True)
 def load_contract():
    
-    with open(Path(concert_database[ticket_tier][3])) as f:
+    with open(Path(concert_database[ticket_tier][3])) as f: 
         artwork_abi = json.load(f)
     contract_address = os.getenv(concert_database[ticket_tier][1])
 
@@ -38,8 +38,6 @@ def load_contract():
     )
 
     return contract
-
-
 
 
 ################################################################################
@@ -56,8 +54,8 @@ address = st.selectbox("Select Ticket Owner", options=accounts)
 
 # Use a Streamlit component to get correct ticket tier and concert details from the user
 st.markdown("# Choose Your Pass")
-concert_name  = st.selectbox("Select Your Venue", options=concert_name_list)
-concert_details = st.selectbox("Select Your Artist", options=concert_details_list)
+concert_name  = st.selectbox("Name of Event", options=concert_name_list)
+concert_details = st.selectbox("Event Details", options=concert_details_list)
 ticket_tier = st.selectbox("Select Your Ticket Option", options=tiers)
 
 # Register New Ticket
@@ -72,12 +70,12 @@ contract = load_contract()
 
 # Get Artwork URI from initial dictionary up top
 artwork_uri = concert_database[ticket_tier][4]
-
+total_token_supply = contract.functions.totalSupply().call()
 
 if st.button("Purchase Ticket"):
 
     # Use the contract to send a transaction to the registerArtwork function and send a transaction that transfers the cost of the ticket to the company
-    #if contract.functions.totalSupply().call < 500:
+    if total_token_supply < 3:
         tx_hash = contract.functions.registerEventArt(
             address,
             concert_name,
@@ -87,10 +85,10 @@ if st.button("Purchase Ticket"):
             ).transact({'from': address, 'gas': 1000000})
         receipt = w3.eth.waitForTransactionReceipt(tx_hash)
         w3.eth.send_transaction({'to': '0x8F97dC517a112df5F1Fc8fb5b81907f929991a4B', 'from': address , 'gas': 1000000, 'value': ticket_cost_wei})
-        
         st.write("Transaction receipt mined:")
         st.write(dict(receipt))
-    #Else: st.write("THIS PASS IS SOLD OUT")
+    if total_token_supply >= 3:
+        st.write("THIS PASS IS SOLD OUT")
 st.markdown("---")
 
 
@@ -147,13 +145,9 @@ def pin_artwork(artwork_name):
     return json_ipfs_hash, token_json
 
 
-def pin_appraisal_report(report_content):
+def pin_appraisal_report(report_content): 
     json_report = convert_data_to_json(report_content)
     report_ipfs_hash = pin_json_to_ipfs(json_report)
     return report_ipfs_hash
 
 
-st.title("Ticket System")
-st.write("Choose an account to get started")
-# address_trade = st.selectbox("Select Account", options=accounts)
-st.markdown("---")

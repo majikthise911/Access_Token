@@ -6,6 +6,8 @@ NFT that gives you access to events
 - [Overview of the project](#overview-of-the-project)
 - [Project Notes](#project-notes)
 - [Files](#files)
+- [Software](#software)
+- [Installs](#installs)
 - [Instructions](#instructions)
 - [Software version control](https://github.com/majikthise911/Access_Token)
     - [GitHub Work](https://github.com/majikthise911/Access_Token)
@@ -29,19 +31,44 @@ Our goal for distribution is to create a Market Place where our collection of Ac
 Alternative options to distribution include the use of prexisting NFT exchanges such as OpenSea and Rarible. Another potential option is the use of "Air Drops".
 "Air Drops" are very common and popular occurence in the crypto world and is an easy way to distribute the Access Token purchased if bought through a thrid party such as TicketMaster, StubHub, SeatGeek, etc. This would require that the purchaser provide their wallet address so that the token can be sent directly to their wallet. "Air Drops" are also a easy way to advertise our services through various social media outlets and create hype about the collection that is being released.
 # Project notes 
-# Files 
-- app.py
-- pinata.py
-- backStageToken.sol
-- generalAdmissionToken.sol
-- pitToken.sol
-- back_stagel.json
-- general_admission.json
-- pit.json
+# Files
+- [app.py](https://github.com/majikthise911/Access_Token)
+- [pinata.py](https://github.com/majikthise911/Access_Token)
+- [backStageToken.sol](https://github.com/majikthise911/Access_Token/tree/main/contracts)
+- [generalAdmissionToken.sol](https://github.com/majikthise911/Access_Token/tree/main/contracts)
+- [pitToken.sol](https://github.com/majikthise911/Access_Token/tree/main/contracts)
+- [back_stagel.json](https://github.com/majikthise911/Access_Token/tree/main/contracts/compiled)
+- [general_admission.json](https://github.com/majikthise911/Access_Token/tree/main/contracts/compiled)
+- [pit.json](https://github.com/majikthise911/Access_Token/tree/main/contracts/compiled)
+
+# Software
+- Ganache – used as a private blockchain that runs locally on the machine being tested on. All interacting wallet addresses are simulated using Ganache.
+- Metamask – we are interacting with the smart contract and test blockchain using Metamask browser wallet.  
+- VsCode – used to run the app.py and pinata.py files that run the interface on Streamlit. 
+
+# Installs
+- Streamlit 
+- Web3 
 
 # Instructions 
 
-1. Compile contracts 
+1.	Open Ganache test blockchain 
+2.	Set up Ganache test environment
+![step 2](https://raw.githubusercontent.com/majikthise911/Access_Token/devFork-JC/Images/set%20up%20ganache%20network%20on%20metamask.png)
+3.	Open remix and connect Metamask to remix 
+4.	Import all three contracts into remix 
+5.	Compile each contract 
+6.	Deploy each contract 
+7.	Copy the meta data for each deployed contract 
+8.	Create a directory within the contracts directory called “compiled” 
+9.	Paste that meta data for each deployed contract into corresponding .json files in the compiled folder
+10.	Copy the hash function for each contract and paste into the corresponding variable within the .env file 
+11.	 Copy the wallet address for the receiving account and paste into the app.py file 
+12.	Open terminal and navigate to the folder that the app.py folder is in
+13.	Make sure you are in the correct dev environment
+14.	Type Streamlit run app.py
+
+
 
 
 
