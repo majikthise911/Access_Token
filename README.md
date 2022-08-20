@@ -90,7 +90,7 @@ Alternative options to distribution include the use of prexisting NFT exchanges 
 8.	Copy the meta data for each deployed contract
 ![Step 8](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/08_copy%20meta%20data.png)
 * * *
-9.	Create a directory within the contracts directory called “compiled” 
+9.	Create a directory within the contracts directory called “compiled” and create a .json file for each contract
 10.	Paste that meta data for each deployed contract into corresponding .json files in the compiled folder
 11.	Copy the hash function for each contract and paste into the corresponding variable within the .env file 
 
