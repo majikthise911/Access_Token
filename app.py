@@ -75,7 +75,7 @@ total_token_supply = contract.functions.totalSupply().call()
 if st.button("Purchase Ticket"):
 
     # Use the contract to send a transaction to the registerArtwork function and send a transaction that transfers the cost of the ticket to the company
-    if total_token_supply < 3:
+    if total_token_supply < 10:
         tx_hash = contract.functions.registerEventArt(
             address,
             concert_name,
@@ -87,7 +87,7 @@ if st.button("Purchase Ticket"):
         w3.eth.send_transaction({'to': '0x8F97dC517a112df5F1Fc8fb5b81907f929991a4B', 'from': address , 'gas': 1000000, 'value': ticket_cost_wei})
         st.write("Transaction receipt mined:")
         st.write(dict(receipt))
-    if total_token_supply >= 3:
+    if total_token_supply >= 10:
         st.write("THIS PASS IS SOLD OUT")
 st.markdown("---")
 

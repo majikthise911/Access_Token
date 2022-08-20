@@ -81,10 +81,11 @@ Alternative options to distribution include the use of prexisting NFT exchanges 
 
 6.	Deploy each contract  ------------------------------------------------------------------------------------------------
 ![Step 6a](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/06a_deploy.png)
+7.	Confirm gas in Metamask ------------------------------------------------------------------------------------------------
 ![Step 6b](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/06b_confirm%20gas.png)
+
 ![Step ca](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/06c_transaction%20data.png)
 
-7.	Confirm gas in Metamask ------------------------------------------------------------------------------------------------
 8.	Copy the meta data for each deployed contract--------------------------------------------------------------------------
 ![Step 8](https://raw.githubusercontent.com/majikthise911/Access_Token/main/Images/08_copy%20meta%20data.png)
 
