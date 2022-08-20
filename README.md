@@ -54,21 +54,22 @@ Alternative options to distribution include the use of prexisting NFT exchanges 
 
 1.	Open Ganache test blockchain 
 2.	Set up Ganache test environment
-![step 2](https://raw.githubusercontent.com/majikthise911/Access_Token/devFork-JC/Images/set%20up%20ganache%20network%20on%20metamask.png)
 3.	Open remix and connect Metamask to remix 
 4.	Import all three contracts into remix 
 5.	Compile each contract 
 6.	Deploy each contract 
-7.	Copy the meta data for each deployed contract 
-8.	Create a directory within the contracts directory called “compiled” 
-9.	Paste that meta data for each deployed contract into corresponding .json files in the compiled folder
-10.	Copy the hash function for each contract and paste into the corresponding variable within the .env file 
-11.	 Copy the wallet address for the receiving account and paste into the app.py file 
-12.	Open terminal and navigate to the folder that the app.py folder is in
-13.	Make sure you are in the correct dev environment
-14.	Type Streamlit run app.py
+7.	Confirm gas in Metamask 
+8.	Copy the meta data for each deployed contract 
+9.	Create a directory within the contracts directory called “compiled” 
+10.	Paste that meta data for each deployed contract into corresponding .json files in the compiled folder
+11.	Copy the hash function for each contract and paste into the corresponding variable within the .env file 
+12.	 Copy the wallet address for the receiving account and paste into the app.py file 
+13.	Open terminal and navigate to the folder that the app.py folder is in
+14.	Make sure you are in the correct dev environment
+15.	Type Streamlit run app.py
 
 
+![step 2](https://raw.githubusercontent.com/majikthise911/Access_Token/devFork-JC/Images/set%20up%20ganache%20network%20on%20metamask.png)
 
 
 
