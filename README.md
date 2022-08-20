@@ -99,7 +99,7 @@ Alternative options to distribution include the use of prexisting NFT exchanges 
 12.	 Copy the wallet address for the receiving account and paste into the app.py file 
 13.	Open terminal and navigate to the folder that the app.py folder is in
 14.	Make sure you are in the correct dev environment
-15.	Type Streamlit run app.py
+15.	Type Streamlit run app.py in the terminal 
 
 
 
