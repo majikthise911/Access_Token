@@ -8,6 +8,7 @@ NFT that gives you access to events
 - [Files](#files)
 - [Software](#software)
 - [Installs](#installs)
+- [Imports](#imports)
 - [Instructions](#instructions)
 - [Software version control](https://github.com/majikthise911/Access_Token)
     - [GitHub Work](https://github.com/majikthise911/Access_Token)
@@ -49,6 +50,17 @@ Alternative options to distribution include the use of prexisting NFT exchanges 
 # Installs
 - Streamlit 
 - Web3 
+
+# Imports 
+- import os
+- import json
+- import requests
+- from web3 import Web3
+- from pathlib import Path
+- from dotenv import load_dotenv
+- import streamlit as st
+
+- from pinata import pin_file_to_ipfs, pin_json_to_ipfs, convert_data_to_json
 
 # Instructions 
 
