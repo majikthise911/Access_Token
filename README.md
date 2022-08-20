@@ -104,9 +104,9 @@ Alternative options to distribution include the use of prexisting NFT exchanges 
 14.	Make sure you are in the correct dev environment
 15.	Type Streamlit run app.py in the terminal 
 
-# Demonstration
+# Demonstration 
 
-
+[![DEMONSTRATION](https://youtu.be/dXZO-gtov3E)](https://youtu.be/dXZO-gtov3E)
 
 
 
